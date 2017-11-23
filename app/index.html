@@ -15,32 +15,28 @@
 </head>
 
 <body ng-app="testeApp">
-  <div layout="column">
-    <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <a href="/">
-          <md-icon class="toolbar-icon" md-svg-icon="images/youtube-draw-logo-white.svg"></md-icon>
-        </a>
-      </div>
-    </md-toolbar>
-    <md-content md-scroll-y="" layout="column" flex="" class="_md layout-column flex">
-      <div ng-view></div>
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <a href="#/">
+        <md-icon class="toolbar-icon" md-svg-icon="images/youtube-draw-logo-white.svg"></md-icon>
+      </a>
+    </div>
+  </md-toolbar>
+  <md-content md-scroll-y layout="column" flex class="scrollable">
+    <div ng-view></div>
 
-      <!-- <ul class="nav nav-tabs">
-        <li ng-class="{active: activetab == '/'}">
-          <a href="home">Home</a>
-        </li>
-        <li ng-class="{active: activetab == '/details'}">
-          <a href="details">Details</a>
-        </li>
-      </ul> -->
-
-      <div id="footer" flex="" class="ng-binding flex">
-        <div>Icons made by <a href="https://www.flaticon.com/authors/agata-kuczminska" title="Agata Kuczminska">Agata Kuczminska</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      </div>
-    </md-content>
-
-  </div>
+    <!-- <ul class="nav nav-tabs">
+      <li ng-class="{active: activetab == '/'}">
+        <a href="home">Home</a>
+      </li>
+      <li ng-class="{active: activetab == '/details'}">
+        <a href="details">Details</a>
+      </li>
+    </ul> -->
+  </md-content>
+  <footer id="footer" flex="none">
+    <div>Icons made by <a href="https://www.flaticon.com/authors/agata-kuczminska" title="Agata Kuczminska">Agata Kuczminska</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+  </footer>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>

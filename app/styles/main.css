@@ -1,5 +1,6 @@
 body {
   padding: 0;
+  overflow: hidden;
 }
 
 #footer {
@@ -20,6 +21,11 @@ body {
 .toolbar-icon {
   width: 36px;
   height: 36px;
+}
+
+.scrollable {
+  height: calc(100% - 64px - 48px);
+  overflow-y: auto;
 }
 
 .video-thumbnail {
