@@ -20,6 +20,13 @@ var app = angular.module('testeApp', [
   'ngMaterial'
 ]);
 
+app.run(function () {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+
 app.config(function ($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
@@ -34,9 +41,4 @@ app.config(function ($routeProvider, $locationProvider) {
           controller  : 'DetailsCtrl',
       })
       .otherwise ({ redirectTo: '/' });
-      // .when('/', {
-      //   templateUrl: 'views/main.html',
-      //   controller: 'MainCtrl',
-      //   controllerAs: 'main'
-      // })
   });

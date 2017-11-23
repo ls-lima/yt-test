@@ -1,65 +1,62 @@
 <!doctype html>
 <html>
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="testeApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <!-- Add your site or application content here -->
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 
-    <div layout="column">
-      <md-toolbar class="md-hue-2">
-      </md-toolbar>
-      <md-content>
-          <div class="container">
-            <div ng-view></div>
-          </div>
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
 
-          <ul class="nav nav-tabs">
-            <li ng-class="{active: activetab == '/'}"><a href="home">Home</a></li>
-            <li ng-class="{active: activetab == '/details'}"><a href="details">Details</a></li>
-          </ul>
-      </md-content>
-    </div>
+<body ng-app="testeApp">
+  <div layout="column">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <a href="/">
+          <md-icon class="toolbar-icon" md-svg-icon="images/youtube-draw-logo-white.svg"></md-icon>
+        </a>
+      </div>
+    </md-toolbar>
+    <md-content md-scroll-y="" layout="column" flex="" class="_md layout-column flex">
+      <div ng-view></div>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+      <!-- <ul class="nav nav-tabs">
+        <li ng-class="{active: activetab == '/'}">
+          <a href="home">Home</a>
+        </li>
+        <li ng-class="{active: activetab == '/details'}">
+          <a href="details">Details</a>
+        </li>
+      </ul> -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/homeCtrl.js"></script>
-        <script src="scripts/controllers/detailsCtrl.js"></script>
-        <!-- endbuild -->
+      <div id="footer" flex="" class="ng-binding flex">
+        <div>Icons made by <a href="https://www.flaticon.com/authors/agata-kuczminska" title="Agata Kuczminska">Agata Kuczminska</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      </div>
+    </md-content>
+
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/homeCtrl.js"></script>
+  <script src="scripts/controllers/detailsCtrl.js"></script>
+  <script src="scripts/services/videoService.js"></script>
 </body>
+
 </html>
