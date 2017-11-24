@@ -2,44 +2,41 @@
 
   <md-content
     hide
-    show-md show-gt-md
-    show-lg show-gt-lg
-    show-xl
+    show-gt-xs
     layout="row"
     layout-align="center center">
     <img
-      ng-class="{'animate-leave-active': videoList && videoList.length}"
+      ng-class="{'animate-leave-active': videoList && videoList.length, 'keep-hide': model.hasMadeFirstSearch}"
       class="md-padding animate-leave"
       src="images/youtube-draw-logo.svg" id="main-logo">
   </md-content>
 
-  <md-content class="md-padding" layout-xs="row" layout="row">
-    <md-card
-      flex-md="50"
-      flex-gt-md="50"
-      flex-lg="50"
-      flex-gt-lg="50"
-      flex-xl="50"
-      flex-offset-md="25"
-      flex-offset-gt-md="25"
-      flex-offset-lg="25"
-      flex-offset-gt-lg="25"
-      flex-offset-xl="25"
-      flex="100" flex-offset="0">
-      <md-card-content class="remove-vert-padding" layout="row" layout-align="space-between">
-        <md-input-container layout="row" class="md-block md-icon-float md-accent" flex-gt-xs>
-          <input placeholder="Search" ng-model="model.searchValue">
-        </md-input-container>
-        <md-input-container layout="row" class="md-block md-icon-float" [flex=20]>
-          <md-button class="md-icon-button" ng-click="search(true)">
-            <md-icon class="md-accent">
-              <i class="material-icons">search</i>
-            </md-icon>
-          </md-button>
-        </md-input-container>
-      </md-card-content>
-    </md-card>
-  </md-content>
+  <form name="searchForm">
+    <md-content class="md-padding" layout-xs="row" layout="row">
+      
+        <md-card
+          flex-gt-xs="50"
+          flex-offset-gt-xs="25"
+          flex="100" flex-offset="0">
+          <md-card-content class="remove-vert-padding" layout="row" layout-align="space-between">
+            <md-input-container layout="row" class="md-block md-icon-float md-accent" flex>
+              <input name="search" required placeholder="Search" ng-model="model.searchValue">
+              <div ng-messages="searchForm.search.$error">
+                <div ng-message="required">Preencha o campo de busca.</div>
+              </div>
+            </md-input-container>
+            <md-input-container layout="row" class="md-block md-icon-float" [flex=20]>
+              <md-button type="submit" class="md-icon-button" ng-click="search(true)">
+                <md-icon class='md-accent'>
+                  <i class="material-icons">search</i>
+                </md-icon>
+              </md-button>
+            </md-input-container>
+          </md-card-content>
+        </md-card>
+      </form>
+    </md-content>
+  </form>
 
   <md-content layout-xs="column" layout="column" ng-if="videoList.length > 0">
     <md-list flex>

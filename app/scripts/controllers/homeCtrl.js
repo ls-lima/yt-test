@@ -15,7 +15,8 @@ app.controller('HomeCtrl', function($rootScope, $http, $log, $location, VideoSer
     searchValue: '',
     message: '',
     loading: false,
-    modalLoading: false
+    modalLoading: false,
+    hasMadeFirstSearch: false
   };
 
   $rootScope.activetab = $location.path();
@@ -58,7 +59,12 @@ app.controller('HomeCtrl', function($rootScope, $http, $log, $location, VideoSer
 
 
   $rootScope.search = function (isNewQuery) {
+
+    if (!$rootScope.model.searchValue)
+      return false;
+
     $rootScope.model.loading = true;
+    $rootScope.model.hasMadeFirstSearch = true;
 
     if (isNewQuery)
       $rootScope.videoList = [];

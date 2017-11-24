@@ -33,7 +33,8 @@ app.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $htt
 
   $mdThemingProvider.theme('default')
   .primaryPalette('grey')
-  .accentPalette('red');
+  .accentPalette('red')
+  .warnPalette('amber');
 
 
   $locationProvider.html5Mode(true);
