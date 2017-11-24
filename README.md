@@ -1,7 +1,7 @@
 ## Environment
 
 O projeto utiliza node.js e git para baixar suas dependências. É necessário que estejam instalados 
-para seguir os passos a seguir.
+para seguir os próximos passos.
 
 No diretório raiz do projeto, pelo prompt de comando do Node, rode o seguinte script: 
 
