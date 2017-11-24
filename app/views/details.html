@@ -1,7 +1,39 @@
-<div class="page-header">
-    <h1>Página Details!</h1>
-
-    <md-button>
-      Teste video
-    </md-button>
- </div>
+<div class="content" ng-controller="DetailsCtrl" ng-cloak>
+  <md-content class="md-padding" layout="row">
+    <md-card flex="100" flex-offset="0" flex-md="70" flex-offset-md="15">
+      <md-card-title hide-xs>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img
+              ng-click="showVideoModal(); launch(videoData);"
+              ng-src="{{ videoData.thumbnail }}"
+              class="md-card-image"
+              alt="{{ videoData.description }}">
+          </div>
+        </md-card-title-media>
+        <md-card-title-text class="md-padding">
+          <span class="md-headline">{{ videoData.title}}</span>
+          <span class="md-subhead">{{ videoData.viewCount}} visualizações</span>
+        </md-card-title-text>
+      </md-card-title>
+      <img
+        hide-gt-xs
+        ng-click="showVideoModal(); launch(videoData);"
+        ng-src="{{ videoData.thumbnail }}"
+        class="md-card-image"
+        alt="{{ videoData.description }}">
+      <md-card-title hide-gt-xs>
+          <md-card-title-text class="md-padding">
+            <span class="md-headline">{{ videoData.title}}</span>
+            <span class="md-subhead">{{ videoData.viewCount}} visualizações</span>
+          </md-card-title-text>
+        </md-card-title>
+      <md-card-content>
+        <p>{{ videoData.description }}</p>
+      </md-card-content>
+      <md-card-actions layout="column" layout-align="start">
+        <md-button ng-click="goBack()">Voltar</md-button>
+      </md-card-actions>
+    </md-card>
+  </md-content>
+</div>

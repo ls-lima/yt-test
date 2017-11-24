@@ -32,3 +32,51 @@ body {
   width: 88px;
   padding-right: 16px;
 }
+
+.text-right {
+  text-align: right;
+}
+
+.animate-leave,
+.animate-enter {
+  -webkit-transition: .5s linear all; /* Chrome */
+	transition: .5s linear all;
+}
+
+.animate-leave.animate-leave-active {
+  height: 0!important;
+}
+
+.remove-vert-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+md-list-item {
+  border-top: 1px solid rgb(66,66,66);
+  padding: 8px 0;
+}
+
+md-card-content p {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: .8em;
+}
+
+md-button.md-icon-button-large {
+  height: 80px;
+  width: 80px;
+}
+
+md-button.md-icon-button-large md-icon {
+  height: 66px;
+  width: 66px;
+}
+
+md-button.md-icon-button-large md-icon i.material-icons {
+  font-size: 66px;
+}
+
+#yt-dialog md-dialog {
+  width: 100%;
+}

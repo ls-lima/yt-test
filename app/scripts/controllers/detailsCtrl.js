@@ -1,27 +1,40 @@
 'use strict';
 
-app.controller('DetailsCtrl', function($rootScope, $location, VideoService) {
+app.controller('DetailsCtrl', function($rootScope, $location, $mdDialog, VideoService, NavigationService) {
   $rootScope.activetab = $location.path();
 
-  init();
+  $rootScope.videoData = {
+    videoId: '',
+    thumbnail: '',
+    title: '',
+    description: '',
+    channel: '',
+    viewCount: 0
+  };
 
   function init() {
+    $rootScope.videoData = { ...NavigationService.getSelectedVideo() };
     $rootScope.youtube = VideoService.getYoutube();
+  };
+
+
+  $rootScope.launch = function(video) {
+    VideoService.launchPlayer(video.videoId, video.title)
   }
 
   $rootScope.showVideoModal = function(event) {
     $mdDialog.show({
-      controller: DialogController,
-      templateUrl: 'templates/yt-player.tmpl.html',
+      contentElement: '#ytdialog',
       parent: angular.element(document.body),
       targetEvent: event,
       clickOutsideToClose:true,
-      fullscreen: $rootScope.customFullscreen // Only for -xs, -sm breakpoints.
-    })
-    .then(function(answer) {
-      youtube.player.stopVideo();
-    }, function() {
-      youtube.player.stopVideo();
+      fullscreen: false // Only for -xs, -sm breakpoints.
     });
   };
+
+  $rootScope.goBack = function() {
+    $location.url('/');
+  }
+
+  init();
 });

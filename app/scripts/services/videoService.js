@@ -1,3 +1,5 @@
+'use strict';
+
 app.service('VideoService', ['$window', '$rootScope', '$log', function ($window, $rootScope, $log) {
 
     var service = this;
@@ -18,7 +20,7 @@ app.service('VideoService', ['$window', '$rootScope', '$log', function ($window,
     $window.onYouTubeIframeAPIReady = function () {
       $log.info('Youtube API is ready');
       youtube.ready = true;
-      service.bindPlayer('placeholder');
+      service.bindPlayer('ytplayer');
       service.loadPlayer();
       $rootScope.$apply();
     };
@@ -33,8 +35,8 @@ app.service('VideoService', ['$window', '$rootScope', '$log', function ($window,
         width: youtube.playerWidth,
         playerVars: {
           rel: 0,
-          showinfo: 0
-        }
+          showinfo: 0,
+        },
       });
     };
 
@@ -70,21 +72,8 @@ app.service('VideoService', ['$window', '$rootScope', '$log', function ($window,
       return results;
     }
 
-    // this.archiveVideo = function (video) {
-    //   history.unshift(video);
-    //   return history;
-    // };
-
     this.getYoutube = function () {
       return youtube;
     };
-
-    this.getResults = function () {
-      return results;
-    };
-
-    // this.getHistory = function () {
-    //   return history;
-    // };
 
   }]);

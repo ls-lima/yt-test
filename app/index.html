@@ -14,10 +14,22 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body ng-app="testeApp">
+<body ng-app="testeApp" md-theme="default">
+
+  <div style="visibility: hidden">
+    <div class="md-dialog-container" id="ytdialog">
+      <md-dialog>
+        <div id="player">
+          <div id="ytplayer" style="width: 100%"></div>
+        </div>
+      </md-dialog>
+    </div>
+  </div>
+
+
   <md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
-      <a href="#/">
+      <a href="javascript:window.location.href = '/'">
         <md-icon class="toolbar-icon" md-svg-icon="images/youtube-draw-logo-white.svg"></md-icon>
       </a>
     </div>
@@ -52,6 +64,7 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/homeCtrl.js"></script>
   <script src="scripts/controllers/detailsCtrl.js"></script>
+  <script src="scripts/services/navigationService.js"></script>
   <script src="scripts/services/videoService.js"></script>
 </body>
 

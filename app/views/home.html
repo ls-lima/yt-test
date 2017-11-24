@@ -1,23 +1,38 @@
-<div class="page-header" ng-controller="HomeCtrl" ng-cloak>
+<div class="content" ng-controller="HomeCtrl" ng-cloak>
 
-  <md-content 
-    ng-class="{'ng-hide': videoList && videoList.length}"
-    class="md-padding" 
-    layout-xs="row" 
-    layout="row" 
+  <md-content
+    hide
+    show-md show-gt-md
+    show-lg show-gt-lg
+    show-xl
+    layout="row"
     layout-align="center center">
-    <img src="images/youtube-draw-logo.svg" id="main-logo">
+    <img
+      ng-class="{'animate-leave-active': videoList && videoList.length}"
+      class="md-padding animate-leave"
+      src="images/youtube-draw-logo.svg" id="main-logo">
   </md-content>
 
   <md-content class="md-padding" layout-xs="row" layout="row">
-    <md-card flex="50" flex-offset="25">
-      <md-card-content layout="row" layout-align="space-between">
-        <md-input-container layout="row" class="md-block md-icon-float" flex-gt-xs>
+    <md-card
+      flex-md="50"
+      flex-gt-md="50"
+      flex-lg="50"
+      flex-gt-lg="50"
+      flex-xl="50"
+      flex-offset-md="25"
+      flex-offset-gt-md="25"
+      flex-offset-lg="25"
+      flex-offset-gt-lg="25"
+      flex-offset-xl="25"
+      flex="100" flex-offset="0">
+      <md-card-content class="remove-vert-padding" layout="row" layout-align="space-between">
+        <md-input-container layout="row" class="md-block md-icon-float md-accent" flex-gt-xs>
           <input placeholder="Search" ng-model="model.searchValue">
         </md-input-container>
         <md-input-container layout="row" class="md-block md-icon-float" [flex=20]>
           <md-button class="md-icon-button" ng-click="search(true)">
-            <md-icon class="md-primary">
+            <md-icon class="md-accent">
               <i class="material-icons">search</i>
             </md-icon>
           </md-button>
@@ -26,9 +41,12 @@
     </md-card>
   </md-content>
 
-  <md-content class="md-padding" layout-xs="row" layout="row">
+  <md-content layout-xs="column" layout="column" ng-if="videoList.length > 0">
     <md-list flex>
-      <md-list-item class="md-3-line" ng-repeat="video in videoList" ng-click="null">
+      <md-list-item
+        class="md-3-line"
+        ng-repeat="video in videoList"
+        ng-click="openDetails(video)">
         <img ng-src="{{ video.thumbnail }}" class="video-thumbnail" alt="{{ video.title }}" />
         <div class="md-list-item-text" layout="column">
           <h3>{{ video.title }}</h3>
@@ -36,5 +54,17 @@
         </div>
       </md-list-item>
     </md-list>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-accent md-raised" ng-click="search(false)">
+        Buscar mais resultados
+      </md-button>
+    </section>
   </md-content>
+
+  <div
+    layout="row"
+    layout-sm="column"
+    layout-align="center center" ng-if="model.loading">
+    <md-progress-circular class="md-accent" diameter="100" md-mode="indeterminate"></md-progress-circular>
+  </div>
 </div>
